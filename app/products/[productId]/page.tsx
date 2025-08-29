@@ -1,9 +1,33 @@
+import { Metadata } from 'next';
 import React from 'react'
 
-export default function ProductDetail(
-    { params }:
-        { params: { productId: String } }
-) {
+type Props = {
+    params: { productId: string }
+}
+
+// export async function generateMetadata(
+//     { params }: Props
+// ): Promise<Metadata> {
+//     const productId = params.productId
+
+//     return {
+//         title: `Product ${productId}`,
+//         description: `Details about product ${productId}`
+//     }
+// }
+
+export function generateMetadata(
+    { params }: Props
+): Metadata {
+    const productId = params.productId
+
+    return {
+        title: `Product ${productId}`,
+        description: `Details about product ${productId}`
+    }
+}
+
+export default function ProductDetail({ params }: Props) {
 
     const productId = params.productId;
 
