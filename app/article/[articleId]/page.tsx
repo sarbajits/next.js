@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { use } from "react";
 
 export default function Article({
@@ -22,8 +22,17 @@ export default function Article({
         { langName: "Hindi", langParam: "hi" },
     ];
 
+    const router = useRouter();
+    const handleClick = () => {
+        // alert("Hello");
+        router.push('/login');
+    };
+
     return (
         <div>
+
+            <button className="bg-emerald-400 p-2 m-4 rounded-2xl" onClick={() => handleClick()}>Click me</button>
+
             {articleId} : {lang}
             <div className="p-2">
                 {languages.map((a) => (
